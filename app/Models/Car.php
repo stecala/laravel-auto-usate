@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CarModel extends Model
+class Car extends Model
 {
     //
 }
-
