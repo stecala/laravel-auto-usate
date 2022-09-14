@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker/Generator as Faker;
-use App/Car;
-
-
+use Faker\Generator as Faker;
+use App\CarModel;
 
 // $table->id();
 // $table->string('car_name');
@@ -23,7 +21,7 @@ class CarsTableSeeder extends Seeder
     {
         for ($i=0; $i < 30; $i++) {
             # code...
-            $newCar = new Car();
+            $newCar = new CarModel();
 
             $newCar -> car_name = $faker -> name();
             $newCar -> car_model = $faker -> name();
