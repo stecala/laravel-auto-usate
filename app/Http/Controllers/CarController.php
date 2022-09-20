@@ -46,7 +46,7 @@ class CarController extends Controller
         $newCar->plate_number = $data['plate_number'];
         $newCar->save();
 
-        return view('cars.index');
+        return redirect()->route('cars.index');
         
     }
 
