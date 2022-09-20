@@ -42,7 +42,7 @@ class CarController extends Controller
         $newCar = new Car();
         $newCar->car_name = $data['car_name'];
         $newCar->car_model = $data['car_model'];
-        $newCar->car_km = $data['car_kme'];
+        $newCar->car_km = $data['car_km'];
         $newCar->plate_number = $data['plate_number'];
         $newCar->save();
 
