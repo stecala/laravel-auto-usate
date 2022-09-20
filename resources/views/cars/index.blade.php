@@ -16,7 +16,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                     @forelse ($cars as $car)                  
+                     @forelse ($cars as $car)
                         <tr>
                            <td>
                               {{ $car->id }}
@@ -31,7 +31,7 @@
                               <a href="" class="btn btn-outline-primary">Edit</a>
                            </td>
                            <td>
-                              
+                              <a href="{{ route('cars.show', $car->id) }}"> Show</a>
                            </td>
                         </tr>
                      @empty
