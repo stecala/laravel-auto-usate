@@ -20,6 +20,15 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-outline-primary" value=“{{ request()->routeIs('cars.edit') ? $post->author : '' }}>Edit</a>
+                <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <input class="btn btn-outline-primary" type="submit" value="cancella">
+                </form>
+            </div>
         </div>
         </div>
 
