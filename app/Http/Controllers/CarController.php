@@ -37,6 +37,16 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+
+        $newCar = new Car();
+        $newCar->car_name = $data['car_name'];
+        $newCar->car_model = $data['car_model'];
+        $newCar->car_km = $data['car_kme'];
+        $newCar->plate_number = $data['plate_number'];
+        $newCar->save();
+
+        return view('cars.index');
         
     }
 
