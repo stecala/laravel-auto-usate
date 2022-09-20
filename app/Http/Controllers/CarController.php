@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class CarController extends Controller
 {
@@ -83,7 +84,15 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request -> all();
+        $newCar = Car::findOrFail($id);
+        $newCar->car_name = $data['car_name'];
+        $newCar->car_model = $data['car_model'];
+        $newCar->car_km = $data['car_km'];
+        $newCar->plate_number = $data['plate_number'];
+        $newCar->save();
+
+        return redirect()->route('cars.show', $newCar->id);
     }
 
     /**

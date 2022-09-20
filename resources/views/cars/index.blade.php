@@ -28,7 +28,7 @@
                                  {{ $car->car_km }}
                            </td>
                            <td>
-                              <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-outline-primary" value=“{{ request()->routeIs(‘admin.posts.edit’) ? $post->author : ‘’ }}>Edit</a>
+                              <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-outline-primary" value=“{{ request()->routeIs('cars.edit') ? $post->author : '' }}>Edit</a>
                            </td>
                            <td>
                               <a href="{{ route('cars.show', $car->id) }}" class="btn btn-outline-primary"> Show</a>
