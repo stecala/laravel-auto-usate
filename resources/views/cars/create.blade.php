@@ -2,8 +2,8 @@
 
 @section('main-content')
    <div class="container">
-      <div class="row">
-         <div class="col-8 col-offset-2">
+      <div class="row py-5">
+         <div class="col-8 offset-2">
             <form action="{{ route('cars.store') }}" method="POST">
                @csrf
                @include('cars.form.form')
