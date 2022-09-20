@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Car;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'CarController@index');
+Route::resource('/cars', 'CarController');
