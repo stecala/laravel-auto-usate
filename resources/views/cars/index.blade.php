@@ -28,10 +28,10 @@
                                  {{ $car->car_km }}
                            </td>
                            <td>
-                              <a href="" class="btn btn-outline-primary">Edit</a>
+                              <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-outline-primary">Edit</a>
                            </td>
                            <td>
-                              <a href="{{ route('cars.show', $car->id) }}"> Show</a>
+                              <a href="{{ route('cars.show', $car->id) }}" class="btn btn-outline-primary"> Show</a>
                            </td>
                         </tr>
                      @empty
