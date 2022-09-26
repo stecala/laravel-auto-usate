@@ -9,6 +9,9 @@ use Symfony\Component\VarDumper\Cloner\Data;
 
 class CarController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -40,6 +43,17 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validatedData=$request->validate([
+
+            'car_name'=>'required|max:100|min:2',
+            'car_model'=>'required|max:100|min:2',
+            'car_km'=>'required|digits_between:0,50000',
+            'plate_number'=>'required|max:10|min:5',
+            'optionals'=>'min:1',
+
+        ]);
+
         $data = $request->all();
 
         $newCar = new Car();
@@ -51,7 +65,7 @@ class CarController extends Controller
         $newCar->optionals()->sync($data['optionals']);
 
         return redirect()->route('cars.index');
-        
+
     }
 
     /**
@@ -89,6 +103,18 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validatedData=$request->validate([
+
+            'car_name'=>'required|max:100|min:2',
+            'car_model'=>'required|max:100|min:2',
+            'car_km'=>'required|digits_between:0,50000',
+            'plate_number'=>'required|max:10|min:5',
+            'optionals'=>'min:1',
+
+        ]);
+
+
         $data = $request -> all();
         $newCar = Car::findOrFail($id);
         $newCar->car_name = $data['car_name'];
@@ -108,10 +134,10 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-       
+
         $car=Car::findorfail($id);
         $car->delete();
         return redirect()->route('cars.index')->with('delete', $car->car_name);
-        
+
     }
 }
