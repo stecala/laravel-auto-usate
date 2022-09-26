@@ -24,7 +24,9 @@
             class="form-check-input"
             id="input-optionals"
             value="{{ $optional->id }}"
-            {{-- {{ $post->tags->contains($tag) ? 'checked' : '' }}  --}}>
+            @if (isset($car))   
+             {{ $car->optionals->contains($optional) ? 'checked' : '' }} >
+            @endif
          <label class="form-check-label" for="input-tags">{{ $optional->name }}</label>
       </div>
    @endforeach

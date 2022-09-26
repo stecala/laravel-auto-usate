@@ -75,7 +75,9 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::findOrFail($id);
-        return view('cars.edit', compact('car'));
+        $optionals=Optional::all();
+
+        return view('cars.edit', compact('car', 'optionals'));
     }
 
     /**
@@ -94,7 +96,7 @@ class CarController extends Controller
         $newCar->car_km = $data['car_km'];
         $newCar->plate_number = $data['plate_number'];
         $newCar->save();
-
+        $newCar->optionals()->sync($data['optionals']);
         return redirect()->route('cars.show', $newCar->id);
     }
 
