@@ -11,14 +11,33 @@
 <div class="mb-3">
    <label for="input-car-model" class="form-label">Car model</label>
    <input type="text" name="car_model" class="form-control" id="input-car-model" value="{{ request()->routeIs('cars.edit') ? $car->car_model : '' }}">
+   @error('car_model')
+   <div class="alert-danger alert">
+       {{ $message }}
+   </div>
+
+    @enderror
 </div>
+
 <div class="mb-3">
    <label for="input-km" class="form-label">Km</label>
    <input type="text" name="car_km" class="form-control" id="input-km" value="{{ request()->routeIs('cars.edit') ? $car->car_km : '' }}">
+   @error('car_km')
+   <div class="alert-danger alert">
+       {{ $message }}
+   </div>
+
+    @enderror
 </div>
 <div class="mb-3">
    <label for="input-plate-number" class="form-label">Plate number</label>
    <input type="text" name="plate_number" class="form-control" id="input-plate-number" value="{{ request()->routeIs('cars.edit') ? $car->plate_number : '' }}">
+   @error('plate_number')
+   <div class="alert-danger alert">
+       {{ $message }}
+   </div>
+
+    @enderror
 </div>
 <div class="mb-3 form-group">
    <label for="input-optionals" >Optionals</label>
