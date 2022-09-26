@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Optional;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -27,7 +28,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $optionals=Optional::all();
+        return view('cars.create', compact('optionals'));
     }
 
     /**
@@ -46,6 +48,7 @@ class CarController extends Controller
         $newCar->car_km = $data['car_km'];
         $newCar->plate_number = $data['plate_number'];
         $newCar->save();
+        $newCar->optionals()->sync($data['optionals']);
 
         return redirect()->route('cars.index');
         

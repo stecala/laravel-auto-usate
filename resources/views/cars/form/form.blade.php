@@ -14,3 +14,18 @@
    <label for="input-plate-number" class="form-label">Plate number</label>
    <input type="text" name="plate_number" class="form-control" id="input-plate-number" value="{{ request()->routeIs('cars.edit') ? $car->plate_number : '' }}">
 </div>
+<div class="mb-3 form-group">
+   <label for="input-tags" >Optionals</label>
+   @foreach ($optionals as $optional)   
+      <div class="form-check">
+         <input 
+            type="checkbox"
+            name="optionals[]"
+            class="form-check-input"
+            id="input-optionals"
+            value="{{ $optional->id }}"
+            {{-- {{ $post->tags->contains($tag) ? 'checked' : '' }}  --}}>
+         <label class="form-check-label" for="input-tags">{{ $optional->name }}</label>
+      </div>
+   @endforeach
+</div>
