@@ -10,6 +10,12 @@
                 <div class="row">
                     <div class="col-12">
                     <h6>{{ $car->car_name }}</h6>
+                    <div>
+                      @forelse ($car->optionals as $optional)
+                            <span class="badge rounded-pill text-bg-success">{{ $optional->name }}</span>
+                        @empty
+                            <h6>Nessun optional trovato</h6>
+                        @endforelse 
                     <h1>{{ $car->car_model }}</h1>
                     <small>{{ $car->car_km }}</small>
                     </div>
