@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CarsTableSeeder::class);
         $this->call(OptionalsTableSeeder::class);
-        $this->call(CarsOptionalsTableSeeder::class);
+        $this->call(CarOptionalTableSeeder::class);
     }
 
 }
