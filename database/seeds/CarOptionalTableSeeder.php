@@ -4,7 +4,7 @@ use App\Models\Car;
 use App\Optional;
 use Illuminate\Database\Seeder;
 
-class CarsOptionalsTableSeeder extends Seeder
+class CarOptionalTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,11 +13,11 @@ class CarsOptionalsTableSeeder extends Seeder
      */
     public function run()
     {
-        $optionals = Optional::all();
         $cars = Car::all();
 
-        foreach ($optionals as $optional) {
-            $optional->cars()->attach($cars->id);
+        foreach ($cars as $car) {
+            $randomOptional = Optional::inRandomOrder()->limit(rand(1,4))->get();
+            $car->optionals()->attach($randomOptional);
         }
     }
 }
