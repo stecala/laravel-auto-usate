@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     public function optionals() {
-        return $this->belongsToMany('App\Models\Car');
+        return $this->belongsToMany('App\Optional');
     }
 }
