@@ -1,7 +1,8 @@
 <template>
     <main>
-        <div class="card" v-for="car in cars" :key="car.id">
-            {{ car.car_name }}
+        <div class="container-lg border my-3" v-for="car in cars" :key="car.id" >
+            {{ car.car_name }}<br>
+            {{ car.car_model }}
         </div>
     </main>
 </template>
