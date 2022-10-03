@@ -6,7 +6,10 @@
 
 <script>
 export default {
+    methods: {
+        //! creo funzione apicall
 
+    },
 }
 </script>
 
